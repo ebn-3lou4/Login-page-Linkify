@@ -19,6 +19,12 @@ const Register = ({ onSwitch }) => {
     }, 2000); // تأخير 2 ثانية
   };
 
+  // دالة إعادة تعيين الحقول (إذا لزم الأمر)
+  const resetFields = () => {
+    // يمكن إضافة أي منطق إضافي هنا إذا لزم الأمر
+    console.log("Fields reset in Register");
+  };
+
   return (
     <div className={`page ${darkMode ? "dark-mode" : "light-mode"}`}>
       <ThemeToggle /> {/* زر الوضع في أعلى اليسار */}
@@ -33,6 +39,7 @@ const Register = ({ onSwitch }) => {
           onSubmit={handleSubmit}
           onSwitch={onSwitch}
           loading={loading}
+          resetFields={resetFields} // تمرير دالة إعادة التعيين
         />
       </div>
     </div>

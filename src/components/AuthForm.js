@@ -2,7 +2,7 @@ import React, { useState } from "react"; // استيراد React و useState
 import { motion } from "framer-motion"; // استيراد Framer Motion للرسوم المتحركة
 import "../styles/AuthStyles.css"; // استيراد الأسلوب
 
-const AuthForm = ({ type, onSubmit, onSwitch, loading }) => {
+const AuthForm = ({ type, onSubmit, onSwitch, loading, resetFields }) => {
   const [email, setEmail] = useState(""); // حالة البريد الإلكتروني
   const [password, setPassword] = useState(""); // حالة كلمة المرور
   const [username, setUsername] = useState(""); // حالة اسم المستخدم
@@ -49,7 +49,29 @@ const AuthForm = ({ type, onSubmit, onSwitch, loading }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      onSubmit(e); // استدعاء دالة الإرسال الخارجية
+      // تخزين البيانات في localStorage
+      if (type === "login") {
+        localStorage.setItem("userData", JSON.stringify({ email, password }));
+      } else if (type === "register") {
+        localStorage.setItem(
+          "userData",
+          JSON.stringify({ username, email, password })
+        );
+      }
+
+      // استدعاء دالة الإرسال الخارجية
+      onSubmit(e);
+
+      // مسح الحقول بعد الإرسال
+      setEmail("");
+      setPassword("");
+      setUsername("");
+      setErrors({ email: "", password: "", username: "" });
+
+      // استدعاء دالة إعادة التعيين الخارجية (إذا كانت موجودة)
+      if (resetFields) {
+        resetFields();
+      }
     }
   };
 
