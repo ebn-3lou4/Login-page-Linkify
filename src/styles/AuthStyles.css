@@ -1,0 +1,220 @@
+/* إعدادات عامة للصفحة بأكملها */
+body {
+  font-family: "Microsoft JhengHei UI", sans-serif; /* الخط الافتراضي للنصوص */
+  margin: 0; /* إزالة الهوامش الافتراضية */
+  padding: 0; /* إزالة الحشوة الافتراضية */
+  background-color: #f5f5f5; /* لون خلفية فاتح للصفحات الأخرى */
+}
+
+/* تنسيق حاوية الصفحة الرئيسية */
+.page {
+  display: flex; /* استخدام Flexbox للترتيب */
+  flex-direction: column; /* ترتيب العناصر عمودياً */
+  align-items: center; /* محاذاة العناصر في المنتصف أفقياً */
+  justify-content: center; /* محاذاة العناصر في المنتصف عمودياً */
+  min-height: 100vh; /* ارتفاع الصفحة يغطي كامل الشاشة */
+  background-color: #ffffff; /* خلفية بيضاء للصفحات */
+  position: relative; /* لتحديد المواقع النسبية (مثل زر الوضع) */
+}
+
+/* تنسيق حاوية النموذج والصورة */
+.auth-wrapper {
+  display: flex; /* استخدام Flexbox لترتيب النموذج والصورة */
+  align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
+  justify-content: center; /* محاذاة العناصر أفقياً في المنتصف */
+  gap: 2.5rem; /* زيادة المسافة بين النموذج والصورة */
+  width: 100%; /* عرض كامل */
+  max-width: 1000px; /* زيادة الحد الأقصى للعرض لتتناسب مع الصورة الأكبر */
+  margin: 0 auto; /* تمرير الحاوية في المنتصف */
+}
+
+/* تنسيق النموذج نفسه */
+.auth-container {
+  background: rgba(255, 255, 255, 0.95); /* خلفية شبه شفافة كبديل */
+  padding: 2.75rem; /* زيادة الحشوة الداخلية قليلاً لمساحة أكبر */
+  border-radius: 1.5rem; /* زوايا مستديرة أكبر */
+  width: 450px; /* زيادة العرض إلى 450px */
+  text-align: center; /* محاذاة النصوص في المنتصف */
+  box-shadow: none; /* إلغاء الظل */
+  border: none; /* إلغاء الحدود */
+}
+
+/* دعم للمتصفحات التي تدعم backdrop-filter */
+@supports (backdrop-filter: blur(5px)) {
+  .auth-container {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+}
+
+/* تنسيق العناوين */
+h2 {
+  font-family: "Josefin Sans", sans-serif; /* خط العناوين */
+  color: #6b46c1; /* لون أرجواني متناسق مع الشعار */
+  margin-bottom: 1.8rem; /* زيادة المسافة السفلية */
+  font-weight: 700; /* وزن الخط */
+  font-size: 28px;
+}
+
+/* تنسيق الوضع المظلم للصفحة */
+.dark-mode {
+  background-color: #1a1a1a; /* خلفية داكنة */
+  color: #fff; /* لون النصوص أبيض */
+}
+
+/* تنسيق النموذج في الوضع المظلم */
+.dark-mode .auth-container {
+  background: #2d2d2d; /* خلفية داكنة للنموذج */
+  color: #fff; /* لون النصوص أبيض */
+  box-shadow: none; /* إلغاء الظل في الوضع المظلم */
+}
+
+/* تنسيق حقول الإدخال في الوضع المظلم */
+.dark-mode input {
+  background: #3d3d3d; /* خلفية داكنة */
+  color: #fff; /* لون النصوص أبيض */
+  border: 1px solid #555; /* حدود داكنة */
+}
+
+/* تنسيق حقول الإدخال */
+input {
+  display: block; /* عرض كامل */
+  width: 100%; /* العرض يملأ الحاوية */
+  padding: 0.75rem; /* حشوة داخلية (بدون تغيير) */
+  margin: 0.75rem 0; /* مسافة عمودية (بدون تغيير) */
+  border: 1px solid #ddd; /* حدود خفيفة */
+  border-radius: 0.75rem; /* زوايا مستديرة أكبر (بدون تغيير) */
+  background: #f9f9f9; /* خلفية فاتحة */
+  font-family: "Microsoft JhengHei UI", sans-serif; /* خط النصوص */
+  transition: border-color 0.3s, box-shadow 0.3s; /* تأثير انتقال للحدود والظل */
+  font-size: 1rem; /* حجم الخط (بدون تغيير) */
+}
+
+/* تأثير التمرير على الإدخالات */
+input:hover {
+  border-color: #6b46c1; /* تغيير لون الحدود عند التمرير */
+  box-shadow: 0 0 5px rgba(107, 70, 193, 0.3); /* إضافة ظل خفيف */
+}
+
+/* تنسيق الإدخالات عند التركيز */
+input:focus {
+  border-color: #6b46c1;
+  outline: none;
+  box-shadow: 0 0 5px rgba(107, 70, 193, 0.5); /* ظل أقوى عند التركيز */
+}
+
+/* تنسيق رسائل الخطأ */
+.error-message {
+  display: block; /* عرض كامل */
+  color: #e74c3c; /* لون أحمر للخطأ */
+  font-size: 0.9rem; /* زيادة حجم الخط قليلاً (بدون تغيير) */
+  margin-top: -0.4rem; /* تقليل المسافة العلوية */
+  margin-bottom: 0.6rem; /* زيادة المسافة السفلية */
+  text-align: left; /* محاذاة لليسار */
+}
+
+/* تنسيق الأزرار */
+button {
+  width: 100%; /* عرض كامل */
+  padding: 1rem; /* حشوة داخلية (بدون تغيير) */
+  background: #6b46c1; /* لون أرجواني متناسق */
+  color: #fff; /* لون النص أبيض */
+  border: none; /* إزالة الحدود */
+  border-radius: 0.75rem; /* زوايا مستديرة أكبر (بدون تغيير) */
+  cursor: pointer; /* مؤشر يد عند التمرير */
+  margin-top: 1.5rem; /* زيادة المسافة العلوية (بدون تغيير) */
+  font-family: "Microsoft JhengHei UI", sans-serif; /* خط النصوص */
+  transition: background 0.3s; /* تأثير انتقال ناعم للخلفية */
+  font-size: 1.1rem; /* حجم الخط (بدون تغيير) */
+  position: relative; /* لتحديد موقع دائرة التحميل */
+}
+
+/* تنسيق الأزرار عند التمرير */
+button:hover {
+  background: #553c9a; /* لون أرجواني داكن عند التمرير */
+}
+
+/* تنسيق رابط "نسيت كلمة المرور" */
+.forgot-password {
+  display: block; /* عرض كامل */
+  text-align: right; /* محاذاة لليمين */
+  color: #6b46c1; /* لون أرجواني */
+  text-decoration: none; /* إزالة التسطير */
+  font-size: 0.9rem; /* زيادة حجم الخط (بدون تغيير) */
+  font-family: "Microsoft JhengHei UI", sans-serif; /* خط النصوص */
+  margin-top: 0.5rem; /* زيادة المسافة العلوية (بدون تغيير) */
+}
+
+/* تنسيق رابط "التسجيل/تسجيل الدخول" */
+.switch-link {
+  color: #6b46c1; /* لون أرجواني */
+  cursor: pointer; /* مؤشر يد عند التمرير */
+  font-family: "Microsoft JhengHei UI", sans-serif; /* خط النصوص */
+  font-size: 1rem; /* زيادة حجم الخط (بدون تغيير) */
+}
+
+/* تنسيق دائرة التحميل */
+.loading-spinner {
+  display: inline-block; /* عرض كجزء من النص */
+  width: 24px; /* زيادة حجم الدائرة (بدون تغيير) */
+  height: 24px; /* زيادة حجم الدائرة (بدون تغيير) */
+  border: 4px solid #fff; /* زيادة سمك الحدود (بدون تغيير) */
+  border-top: 4px solid transparent; /* الحد العلوي شفاف لتأثير الدوران (بدون تغيير) */
+  border-radius: 50%; /* جعلها دائرية (بدون تغيير) */
+  animation: spin 1s linear infinite; /* تأثير الدوران (بدون تغيير) */
+}
+
+/* تأثير دوران الدائرة */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* البداية */
+  }
+  100% {
+    transform: rotate(360deg); /* الدوران الكامل */
+  }
+}
+
+/* تنسيق التصميم المتجاوب */
+@media (max-width: 768px) {
+  /* لأجهزة الهواتف (شاشات أقل من 768px) */
+  .page {
+    padding: 0; /* تقليل الحشوة الداخلية */
+    justify-content: center; /* التأكد من المحاذاة في المنتصف */
+  }
+
+  .auth-wrapper {
+    flex-direction: column; /* ترتيب عمودي */
+    gap: 0; /* إزالة المسافة بين العناصر لأن الصورة مخفية */
+    padding:0; /* حشوة جانبية */
+    width: 50%; /* عرض كامل */
+  }
+
+  .auth-container {
+    width: 70%; /* العرض الكامل للهواتف */
+    max-width: 100rem; /* الحد الأقصى للعرض */
+    padding: 2rem; /* تقليل الحشوة قليلاً */
+    margin: 0 auto; /* التأكد من التمركز الأفقي */
+    box-shadow: none; /* إلغاء الظل */
+    border: none; /* إلغاء الحدود */
+  }
+
+  .auth-image {
+    display: none; /* إخفاء الصورة على الهواتف */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* للتابلت (شاشات بين 768px و1024px) */
+  .auth-wrapper {
+    gap: 2rem; /* الحفاظ على مسافة معتدلة */
+    padding: 0 1rem; /* حشوة جانبية */
+  }
+
+  .auth-container {
+    width: 100px; /* تقليل العرض قليلاً */
+    padding: 2.5rem; /* تقليل الحشوة قليلاً */
+  }
+
+
+}

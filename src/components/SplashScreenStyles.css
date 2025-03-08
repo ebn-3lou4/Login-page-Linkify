@@ -1,0 +1,107 @@
+/* تنسيق حاوية صفحة Splash Screen */
+.splash-screen {
+  display: flex; /* استخدام Flexbox للترتيب */
+  justify-content: center; /* محاذاة الشعار أفقياً في المنتصف */
+  align-items: center; /* محاذاة الشعار عمودياً في المنتصف */
+  height: 100vh; /* ارتفاع الصفحة يغطي كامل الشاشة */
+  background-color: #ffffff; /* خلفية بيضاء */
+  position: fixed; /* تثبيت الصفحة على الشاشة */
+  top: 0; /* الموقع العلوي */
+  left: 0; /* الموقع الأيسر */
+  width: 100%; /* العرض الكامل */
+  z-index: 2000; /* أولوية عالية لتظهر فوق العناصر الأخرى */
+  overflow: hidden; /* منع الدوائر من الظهور خارج الحاوية */
+}
+
+/* تنسيق الشعار */
+.splash-logo {
+  max-width: 300px; /* الحد الأقصى لعرض الشعار */
+  height: auto; /* الارتفاع تلقائي */
+  z-index: 2001; /* أولوية أعلى من الدوائر لتظهر فوقها */
+  animation: fadeIn 1s ease-in-out; /* تأثير ظهور تدريجي */
+}
+
+/* تنسيق حاوية الدوائر المتحركة */
+.background-circles {
+  position: absolute; /* تحديد الموقع المطلق */
+  top: 0; /* الموقع العلوي */
+  left: 0; /* الموقع الأيسر */
+  width: 100%; /* العرض الكامل */
+  height: 100%; /* الارتفاع الكامل */
+  overflow: hidden; /* منع الدوائر من التجاوز */
+}
+
+/* تنسيق الدوائر المتحركة */
+.background-circles::before,
+.background-circles::after,
+.background-circles > div::before {
+  content: ""; /* عنصر فارغ */
+  position: absolute; /* تحديد الموقع المطلق */
+  border-radius: 50%; /* جعلها دائرية */
+  background: rgba(107, 70, 193, 0.15); /* لون أرجواني شفاف */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* ظل خفيف للعمق */
+  animation: float 10s infinite ease-in-out; /* حركة متكررة */
+}
+
+/* دعم للمتصفحات التي تدعم backdrop-filter */
+@supports (backdrop-filter: blur(10px)) {
+  .background-circles::before,
+  .background-circles::after,
+  .background-circles > div::before {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+/* الدائرة الأولى */
+.background-circles::before {
+  width: 120px; /* عرض الدائرة */
+  height: 120px; /* ارتفاع الدائرة */
+  top: 20%; /* الموقع العلوي */
+  left: 10%; /* الموقع الأيسر */
+  animation-delay: 0s; /* بدون تأخير */
+}
+
+/* الدائرة الثانية */
+.background-circles::after {
+  width: 150px; /* عرض الدائرة (أكبر) */
+  height: 150px; /* ارتفاع الدائرة */
+  top: 60%; /* الموقع العلوي */
+  right: 15%; /* الموقع الأيمن */
+  animation-delay: 2s; /* تأخير 2 ثانية */
+}
+
+/* الدائرة الثالثة */
+.background-circles > div::before {
+  width: 100px; /* عرض الدائرة (أصغر) */
+  height: 100px; /* ارتفاع الدائرة */
+  bottom: 25%; /* الموقع السفلي */
+  left: 60%; /* الموقع الأيسر */
+  animation-delay: 4s; /* تأخير 4 ثوانٍ */
+}
+
+/* تأثير الحركة للدوائر */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1); /* البداية */
+    opacity: 0.6; /* شفافية */
+  }
+  50% {
+    transform: translateY(-30px) scale(1.1); /* حركة لأعلى مع تكبير */
+    opacity: 0.8; /* شفافية أعلى */
+  }
+  100% {
+    transform: translateY(0) scale(1); /* العودة للوضع الأصلي */
+    opacity: 0.6; /* شفافية */
+  }
+}
+
+/* تأثير ظهور الشعار */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* شفافية صفر */
+  }
+  to {
+    opacity: 1; /* شفافية كاملة */
+  }
+}

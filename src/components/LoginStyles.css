@@ -1,0 +1,16 @@
+/* تنسيق حاوية النموذج والصورة في صفحة Login */
+.auth-wrapper {
+  display: flex; /* استخدام Flexbox */
+  align-items: center; /* محاذاة عمودية في المنتصف */
+  justify-content: center; /* محاذاة أفقية في المنتصف */
+  gap: 4rem; /* مسافة بين النموذج والصورة */
+  width: 100%; /* عرض كامل */
+  max-width: 800px; /* الحد الأقصى للعرض */
+  margin: 0 auto; /* تمرير في المنتصف */
+}
+
+/* تنسيق الصورة المصاحبة */
+.auth-image {
+  max-width: 400px; /* الحد الأقصى للعرض */
+  height: auto; /* الارتفاع تلقائي */
+}

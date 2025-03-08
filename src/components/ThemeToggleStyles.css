@@ -1,0 +1,24 @@
+/* تنسيق زر الوضع */
+.theme-toggle {
+  position: absolute; /* تحديد الموقع المطلق */
+  top: 20px; /* الموقع العلوي */
+  left: 20px; /* الموقع الأيسر */
+  padding: 0.3rem 0.7rem; /* حشوة داخلية صغيرة */
+  background: #6b46c1; /* لون أرجواني متناسق */
+  color: #fff; /* لون الأيقونة أبيض */
+  border: none; /* إزالة الحدود */
+  border-radius: 50%; /* جعل الزر دائري */
+  cursor: pointer; /* مؤشر يد عند التمرير */
+  font-size: 1.2rem; /* حجم الأيقونة */
+  width: 40px; /* عرض الزر */
+  height: 40px; /* ارتفاع الزر */
+  display: flex; /* استخدام Flexbox */
+  align-items: center; /* محاذاة الأيقونة عمودياً */
+  justify-content: center; /* محاذاة الأيقونة أفقياً */
+  z-index: 1000; /* أولوية لتظهر فوق العناصر الأخرى */
+}
+
+/* تنسيق الزر عند التمرير */
+.theme-toggle:hover {
+  background: #553c9a; /* لون أرجواني داكن عند التمرير */
+}

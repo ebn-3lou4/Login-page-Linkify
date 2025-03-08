@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import { createRoot } from "react-dom/client"; // استيراد createRoot لدعم React 18
+import App from "./App"; // استيراد المكون الرئيسي
+import { store } from "./redux/store"; // استيراد متجر Redux
+import { Provider } from "react-redux"; // استيراد Provider لتوصيل Redux
+import "./styles/AuthStyles.css"; // استيراد الأسلوب العام
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// إنشاء جذر التطبيق
+const root = createRoot(document.getElementById("root"));
+
+// تقديم التطبيق
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
